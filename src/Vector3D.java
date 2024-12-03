@@ -56,11 +56,9 @@ public class Vector3D {
     public boolean Vector_eq(Vector3D vector2) {
         boolean bul = false;
         if (this.len == vector2.Vector_len() && (this.x / vector2.x == this.y / vector2.y && this.y / vector2.y == this.z / vector2.z)) {
-            System.out.println("Векторы равны");
             bul = true;
 
         }
-        else{System.out.println("Векторы не равны");}
         return bul;
     }
 
