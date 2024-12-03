@@ -33,18 +33,16 @@ public class Vector3DProcessor {
         vector1.Vector_len();
     }
 
-    public static void Vector_collinearity_check(Vector3D vector1, Vector3D vector2) {
+    public static boolean Vector_collinearity_check(Vector3D vector1, Vector3D vector2) { //вопросы имеются
+        boolean bul = false;
         double x = vector1.GetX(), y = vector1.GetY(), z = vector1.GetZ();
         Vector_product(vector1, vector2);
-        if (vector1.GetX() == 0 && vector1.GetY() == 0 && vector1.GetX() == 0) {
-            System.out.println("Векторы колинеарны");
-        } else {
-            System.out.println("Векторы коллинеарны");
-        }
+        if (vector1.GetX() == 0 && vector1.GetY() == 0 && vector1.GetX() == 0) {bul = true;}
 
         vector1.SetX(x);
         vector1.SetY(y);
         vector1.SetZ(z);
         vector1.Vector_len();
+        return bul;
     }
 }
