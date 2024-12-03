@@ -48,27 +48,29 @@ public class VectorArray {
         return number + 1;
     }
 
-    public void vector_sum() {
+    public double[] vector_sum() {
+        double[] buf_array;
+        buf_array = new double[3];
         for (int i = 0; i < this.size ; i++) {
-            this.array[this.size][0] += this.array[i][0];
-            this.array[this.size][1] += this.array[i][1];
-            this.array[this.size][2] += this.array[i][2];
+            buf_array[0] += this.array[i][0];
+            buf_array[1] += this.array[i][1];
+            buf_array[2] += this.array[i][2];
 
         }
-        System.out.printf("Результат: (%.1f, %.1f, %.1f)\n", this.array[this.size][0], this.array[this.size][1], this.array[this.size][2]);
+        return buf_array;
     }
 
-    public void lineal_comb(double array[], int size) {
+    public double[] lineal_comb(double array[], int size) {
+        double[] buf_array;
+        buf_array = new double[3];
         if (size == this.size) {
             for (int i = 0; i < size; i++) {
                 this.array[i][0] *= array[i];
                 this.array[i][1] *= array[i];
                 this.array[i][2] *= array[i];
             }
-            vector_sum();
-        } else {
-            System.out.printf("Результат: (0,0 0,0 0,0)");
-        }
+            buf_array = vector_sum();}
+        return buf_array;
     }
 
     public void replace(Point3D point1) {

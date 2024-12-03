@@ -41,10 +41,14 @@ public class Main {
         double b = vector1.Vector_len();
         System.out.println(b);
 
-        vector1.Vector_eq(vector2);
+        if(vector1.Vector_eq(vector2)){System.out.println("Векторы равны");}
+        else{System.out.println("Векторы не равны");}
+
         Vector3DProcessor.Vector_dif(vector2, vector1); // если менять местами то будет ноль, если сумма, то наоборот
         System.out.println(vector2.Vector_len());
-        vector1.Vector_eq(vector2);
+
+        if(vector1.Vector_eq(vector2)){System.out.println("Векторы равны");}
+        else{System.out.println("Векторы не равны");}
 
         Vector3D vector3 = new Vector3D(point1, point2);
         Vector3D vector4 = new Vector3D(point3, point4);
@@ -56,7 +60,8 @@ public class Main {
         res = Vector3DProcessor.Vector_dot_product(vector3, vector4);
         System.out.println("Скалярное произведение векторов: " + res);
 
-        Vector3DProcessor.Vector_collinearity_check(vector3, vector4);
+        if(Vector3DProcessor.Vector_collinearity_check(vector3, vector4)){System.out.println("Векторы колинеарны");}
+        else{System.out.println("Векторы коллинеарны");}
 
         Vector3DProcessor.Vector_product(vector3, vector4);  //показали работает ли колинеарность и заодно произведение векторов
         vector3.Info();
@@ -75,10 +80,13 @@ public class Main {
 
         array.SetVector(1, vector4);
         System.out.println(array.search_vector(vector4));
-        array.vector_sum();
+        double[] test_array = array.vector_sum();
+        System.out.printf("Результат суммы векторов массива: (%.1f, %.1f, %.1f)\n", test_array[0], test_array[1], test_array[2]);
+
         array.Array_show();
 
-        array.lineal_comb(arr, size);
+        double[] test_array_comb = array.lineal_comb(arr, size);
+        System.out.printf("Результат линейной комбинации векторов массива: (%.1f, %.1f, %.1f)\n", test_array_comb[0], test_array_comb[1], test_array_comb[2]);
 
         array.replace(point5);
         array.Array_show();
