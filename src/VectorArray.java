@@ -1,4 +1,4 @@
-public class VectorArray {
+public class VectorArray {//
     private Vector3D vectors[];
     private int size;
 

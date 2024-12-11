@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Point3D {
+public class Point3D {//
     private double x;
     private double y;
     private double z;

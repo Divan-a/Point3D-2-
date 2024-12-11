@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main {//
     public static void main(String[] args) {
         Point3D point1 = new Point3D(7, 7, 7);
         Point3D point11 = new Point3D(7, 7, 7);

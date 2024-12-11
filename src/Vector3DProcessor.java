@@ -1,4 +1,4 @@
-public class Vector3DProcessor {
+public class Vector3DProcessor {//
     public static Vector3D Vector_sum(Vector3D vector1, Vector3D vector2) {
         Vector3D v3 = new Vector3D();
         v3.SetX(vector1.GetX() + vector2.GetX());
