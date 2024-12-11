@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Vector3D {
 
     private double x;
@@ -17,9 +19,9 @@ public class Vector3D {
     }
 
     Vector3D(Point3D point1, Point3D point2) {
-        this.x = point1.GetX() - point2.GetX();
-        this.y = point1.GetY() - point2.GetY();
-        this.z = point1.GetZ() - point2.GetZ();
+        this.x = point1.getX() - point2.getX();
+        this.y = point1.getY() - point2.getY();
+        this.z = point1.getZ() - point2.getZ();
     }
 
     public double GetX() {
@@ -47,7 +49,20 @@ public class Vector3D {
     }
 
     public double Vector_len() {
-        return Math.pow(x * x + y * y + z * z, 0.5);
+        return Math.sqrt(x * x + y * y + z * z);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector3D vector3D = (Vector3D) o;
+        return Double.compare(x, vector3D.x) == 0 && Double.compare(y, vector3D.y) == 0 && Double.compare(z, vector3D.z) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, z);
     }
 
     public void Info(){

@@ -17,32 +17,32 @@ public class Point3D {
         this.z = z;
     }
 
-    public double GetX() {
-        return this.x;
+    public double getX() {
+        return x;
     }
 
-    public double GetY() {
-        return this.y;
+    public void setX(double x) {
+        this.x = x;
     }
 
-    public double GetZ() {
-        return this.z;
+    public double getY() {
+        return y;
     }
 
-    public void SetX(double c) {
-        this.x = c;
+    public void setY(double y) {
+        this.y = y;
     }
 
-    public void SetY(double c) {
-        this.y = c;
+    public double getZ() {
+        return z;
     }
 
-    public void SetZ(double c) {
-        this.z = c;
+    public void setZ(double z) {
+        this.z = z;
     }
 
-    public void displayInfo() {
-        System.out.printf("Координаты точки (%.1f, %.1f, %.1f)\n", GetX(), GetY(), GetZ());
+    public void displayInfoAboutPoint() {
+        System.out.printf("Координаты точки (%.1f, %.1f, %.1f)\n", getX(), getY(), getZ());
     }
 
     @Override

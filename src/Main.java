@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Point3D point1 = new Point3D(7, 7, 7);
+        Point3D point11 = new Point3D(7, 7, 7);
         Point3D point2 = new Point3D(5, 5, 5);
 
         Point3D point3 = new Point3D(1, 1, 1);
@@ -11,22 +12,22 @@ public class Main {
         Point3D point5 = new Point3D(1, 4, 6);
         Point3D point6 = new Point3D(10, 8, 12);
 
-        point1.displayInfo();
+        point1.displayInfoAboutPoint();
         //point1.SetX(2);
-        point1.displayInfo();
+        point1.displayInfoAboutPoint();
 
-        point2.displayInfo();
-        point2.GetX();
+        point2.displayInfoAboutPoint();
+        //point2.GetX();
 
 
 
-        if (point2.GetX() == point1.GetX() && point1.GetY() == point2.GetY() && point1.GetZ() == point2.GetZ()) { // пробуем сравнить две точки
+        if (point2.getX() == point1.getX() && point1.getY() == point2.getY() && point1.getZ() == point2.getZ()) { // пробуем сравнить две точки
             System.out.println("YEA");
         } else {
             System.out.println("NO");
         }
-        if (point1 == point1) {
-            System.out.println("YEA");
+        if (point1.equals(point11)) {
+            System.out.println("YES");
         } else {
             System.out.println("NO");
         }
@@ -41,13 +42,13 @@ public class Main {
         double b = vector1.Vector_len();
         System.out.println(b);
 
-        if(vector1.Vector_eq(vector2)){System.out.println("Векторы равны");}
+        if(vector1.equals(vector2)){System.out.println("Векторы равны");}
         else{System.out.println("Векторы не равны");}
 
         Vector3DProcessor.Vector_dif(vector2, vector1); // если менять местами то будет ноль, если сумма, то наоборот
         System.out.println(vector2.Vector_len());
 
-        if(vector1.Vector_eq(vector2)){System.out.println("Векторы равны");}
+        if(vector1.equals(vector2)){System.out.println("Векторы равны");}
         else{System.out.println("Векторы не равны");}
 
         Vector3D vector3 = new Vector3D(point1, point2);
@@ -68,8 +69,7 @@ public class Main {
 
 
 
-        VectorArray array = new VectorArray(5);
-        array.Array_show();
+        VectorArray vectorArray = new VectorArray(5);
 
         Scanner in = new Scanner(System.in);
         int size = 5;
@@ -78,20 +78,21 @@ public class Main {
         arr[0] = -10.0; arr[1] = 5.0; arr[2] = 4.36; arr[3] = 6.2; arr[4] = -9.0;
 
 
-        array.SetVector(1, vector4);
-        System.out.println(array.search_vector(vector4));
-        double[] test_array = array.vector_sum();
-        System.out.printf("Результат суммы векторов массива: (%.1f, %.1f, %.1f)\n", test_array[0], test_array[1], test_array[2]);
+        vectorArray.SetVector(1, vector4);
+        System.out.println(vectorArray.search_vector(vector4));
+        Vector3D v1 = vectorArray.vector_sum();
 
-        array.Array_show();
+        System.out.printf("Результат суммы векторов массива: (%.1f, %.1f, %.1f)\n", v1.GetX(), v1.GetY(), v1.GetZ());
 
-        double[] test_array_comb = array.lineal_comb(arr, size);
-        System.out.printf("Результат линейной комбинации векторов массива: (%.1f, %.1f, %.1f)\n", test_array_comb[0], test_array_comb[1], test_array_comb[2]);
+        vectorArray.Array_show();
 
-        array.replace(point5);
-        array.Array_show();
+        Vector3D v2 = vectorArray.lineal_comb(arr, 5);
+        System.out.printf("Результат линейной комбинации векторов массива: (%.1f, %.1f, %.1f)\n", v2.GetX(), v2.GetY(), v2.GetZ());
 
-        System.out.println(array.max_vector_len());
+        vectorArray.replace(point5);
+        vectorArray.Array_show();
+
+        System.out.println(vectorArray.max_vector_len());
 
 
     }
